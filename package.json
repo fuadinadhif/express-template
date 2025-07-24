@@ -3,15 +3,18 @@
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=development && tsx --watch src/app.ts",
-    "start": "NODE_ENV=production && node src/app.js"
+    "start": "NODE_ENV=production && node src/app.js",
+    "seed": "tsx prisma/seed.ts"
   },
   "type": "module",
   "dependencies": {
+    "@prisma/client": "^6.12.0",
     "express": "^5.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/node": "^24.1.0",
+    "prisma": "^6.12.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
