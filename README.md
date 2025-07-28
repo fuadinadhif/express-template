@@ -37,6 +37,7 @@ Let’s walk through it together.
 3. Create an api/index.ts file for the Vercel entry point
 4. Create a vercel.json file to set up the Vercel configuration
 5. Deploy to Vercel
+6. Add `.env` variables to Vercel
 
 ### `src/app.ts`
 
@@ -115,3 +116,15 @@ Vercel doesn’t run a background server. It only runs your code when a request 
 5. After deployment, Vercel will give you a live URL like: `https://your-project-name.vercel.app/api/hello`
 
    Try visiting it in the browser — you’ll see your Express app running!
+
+### Set Environment Variables
+
+Vercel can’t access .env files directly. We can add it using Vercel GUI through it sites or add it using command line.
+
+1. Command line
+
+   ```bash
+   vercel env add DATABASE_URL
+   ```
+
+2. Or go to the Vercel dashboard > Project > Settings > Environment Variables.
