@@ -15,13 +15,16 @@ async function seed() {
     /* ----------------------------- Create new data ---------------------------- */
     console.info(`Start creating new data...`);
 
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const name = faker.person.fullName();
       const email = faker.internet.email();
       const password = await bcrypt.hash("newpass", 10);
       const profilePic = faker.image.avatar();
+      const role = i === 0 ? "ADMIN" : i < 5 ? "CUSTOMER" : "EVENT_ORGANIZER";
 
-      await prisma.user.create({ data: { name, email, password, profilePic } });
+      await prisma.user.create({
+        data: { name, email, password, profilePic, role },
+      });
 
       console.info(`${name} data has been created.`);
     }
